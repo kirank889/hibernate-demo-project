@@ -40,6 +40,20 @@ public class App
         // commit
         transaction.commit();
 
+        // retriving data from database.
+        // get () - it returns Null if object does not exist. It effect the performance of the application.
+        // load() - it will throw the ObjectNotFoundException if object does not exist. It gives better performance.
+
+        Employee employee1 = session.get(Employee.class,1 );
+        System.out.println(employee1);
+
+        // delete a record.
+        Employee employee2 = session.get(Employee.class, 1);
+        session.delete(employee);
+        transaction.commit();
+
+        // update a record.
+
         // close the connection
         session.close();
     }
